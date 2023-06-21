@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-all',
@@ -7,17 +8,26 @@ import { DataService } from '../service/data.service';
   styleUrls: ['./view-all.component.css']
 })
 export class ViewAllComponent implements OnInit {
-constructor(private ds:DataService){}
+searchData:any
+  allProductArray:any
+constructor(private ds:DataService,private rout:Router){}
 
 ngOnInit(): void {
   
-    this.ds.viewAllDoctors().subscribe((result:any)=>{
-      console.log(result);
-      
+      this.ds.viewAllDoctors().subscribe((result:any)=>{
+        this.allProductArray=result
+        console.log(this.allProductArray);
     })
-  
+    
+   
   }
- 
+  search(event:any){
+    this.searchData= event.target.value
+   }
+
+
+
+
   }
 
 

@@ -1,0 +1,31 @@
+<div class="row">
+<div class="lg-12 sm-3 md-6"  >
+        <table class="table table-success table-striped mt-5" >
+            <thead>
+                <tr>
+                  <th scope="col">Number</th>
+                  <th scope="col">Patient Name</th>
+                  <th scope="col"> mobile</th>
+                  <th scope="col">email</th>
+                  <th scope="col">Department</th>
+                  <th scope="col">Doctor</th>
+                  <th scope="col">Date</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let i of allArray">
+                  <th scope="row" class="counterCell"></th>
+                  <td>{{i.patientName}}</td>
+                  <td>{{i.mobile}}</td>
+                  <td>{{i.email}}</td>
+                  <td>{{i.department}}</td>
+                  <td>{{i.doctor}}</td>
+                  <td>{{i.date}}</td>
+
+                </tr>
+              </tbody>
+          </table>
+    
+</div>    
+</div>

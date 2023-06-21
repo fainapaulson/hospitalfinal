@@ -1,0 +1,8 @@
+table {
+    counter-reset: section;
+  }
+
+.counterCell::before{
+    counter-increment: section;
+  content: counter(section);
+}

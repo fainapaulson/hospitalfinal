@@ -1,1 +1,113 @@
-<p>register works!</p>
+<div class ="row">
+<div class="col-md-6 col-lg-12 col-sm-3 ">
+<button (click)="add()" type="button" class="mt-5 bg-info w-25" id="t1" >admin</button>
+<button (click)="show()" type="button" class="mt-5 bg-info w-25 float-right" id="t2" >show registered Patients</button>
+
+    <div class="container w-50 text-center">
+
+        <h2 class="mb-5 mt-3">Add Patients Details</h2>
+        <form   [formGroup]="registerForm" (ngSubmit)="  register()"  id="f" class="container border bg-light">
+    
+            <input  formControlName="patientName" type="text" class="form-control mt-3 p-2" placeholder="Patient Name" name="pin1" id="pin1">
+            <div *ngIf ="(this.registerForm.get('patientName')?.errors)&&(this.registerForm.get('patientName')?.touched)">
+                <p class="text-danger text-center">must contain letters only</p> 
+             </div>
+    
+            <input  formControlName="mobile" type="number" class="form-control mt-3 p-2" placeholder="Phone / Mobile" name="pin2" id="pin2">
+            <div *ngIf ="(this.registerForm.get('mobile')?.errors)&&(this.registerForm.get('mobile')?.touched)">
+                <p class="text-danger text-center">must contain numbers only</p> 
+             </div>
+    
+            <input  formControlName="email" type="email" class="form-control mt-3 p-2" placeholder="Email Address" name="pin3" id="pin3">
+            <div *ngIf ="(this.registerForm.get('email')?.errors)&&(this.registerForm.get('email')?.touched)">
+                <p class="text-danger text-center">must contain numbers only</p> 
+             </div>
+
+<div>
+        
+    
+        
+                <!-- <input  formControlName="" type="text" class="form-control mt-3 p-2" placeholder="select Doctor" name="pin7" id="pin7"> -->
+    <label  for="spec">Select Department </label>
+    <!-- <div *ngIf ="(this.registerForm.get('department')?.errors)&&(this.registerForm.get('department')?.touched)">
+        <p class="text-danger text-center">must contain letters only</p> 
+     </div> -->
+    
+    <select   formControlName="department" id="spec"  name="spec" class="form-control mt-3 p-2">
+                  <option value="">Departments</option>
+                  <option value="ENT">ENT</option>
+                 <option value="Cardiology "> Cardiology  </option>
+                 <option value="Neurosurgery"> Neurosurgery </option>
+                 <option value="Gynecology"> Gynecology </option>
+    
+                  </select> 
+    
+                  <!-- <label for="spec">Specialization:</label>
+                </div>
+                      <div class="col-md-8">
+                         <select name="spec" class="form-control" id="spec">
+                           <option value="" disabled selected>Select Specialization</option>
+                           <option value="General">General</option>
+                           <option value="Cardiologist">Cardiologist</option>
+                           <option value="Pediatrician">Pediatrician</option>
+                           <option value="Neurologist">Neurologist</option>
+                         </select>
+                       </div><br> -->
+                       <!-- <script>
+                        document.getElementById('spec').onchange = function foo() {
+      let spec = this.value;   
+      let docs = [...document.getElementById('doctor').options];
+      docs.forEach((el, ind, arr)=>{
+      arr[ind].setAttribute("style","");
+      if (el.getAttribute("data-spec") != spec ) {
+          arr[ind].setAttribute("style","display: none");
+      }
+      });
+      };
+
+             </script>  -->
+
+    
+      
+                  <label for="doctor">Select Doctor </label>
+                  <!-- <div *ngIf ="(this.registerForm.get('doctor')?.errors)&&(this.registerForm.get('doctor')?.touched)">
+                    <p class="text-danger text-center">must contain letters only</p> 
+                 </div> -->
+    
+                  
+                  <select   formControlName="doctor" name="doctor" class="form-control" id="doctor" required="required">
+                    <option value="" disabled selected>Select Doctor</option>
+                    <option value="Dr.Vinod" data-spec="ENT">Dr.Vinod</option>
+                    <option value="Dr.Susan" data-spec="ENT">Dr.Susan</option>
+                    <option value="Dr.Anoop" data-spec="Cardiology">Dr.Anoop</option>
+                    <option value="Dr.renjith" data-spec="Cardiology">Dr.renjith</option>
+                    <option value="Dr.Charls" data-spec="Neurosurgery">Dr.Charls</option>
+                    <option value="Dr.Divya" data-spec="Neurosurgery">Dr.Divya</option>
+                    <option value="Dr.veena" data-spec="Gynecology">Dr.veena</option>
+                    <option value="Dr.Renu" data-spec="Gynecology">Dr.Renu</option>
+                 </select>
+
+    
+                
+    
+    
+</div>             
+
+<label for="start">Appoinment Date</label>
+
+<input  formControlName="date" type="date" id="start"  class="form-control mt-3 p-2" name="trip-start"
+       value="2018-07-22"
+       min="2023-01-01" max="2024-12-31">
+
+
+
+           
+    
+            <button type="submit" class="btn btn-success p-2 mt-3 mb-5" >Book Your Appoinment</button>
+        </form>
+
+    </div>
+
+</div>
+
+</div>
